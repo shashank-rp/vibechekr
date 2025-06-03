@@ -1,9 +1,6 @@
 package com.rith.vibechekr.review.repository;
 
 import static java.util.Objects.nonNull;
-
-import android.util.Log;
-
 import com.rith.vibechekr.common.controllers.ReviewApi;
 import com.rith.vibechekr.common.model.ReviewDto;
 import com.rith.vibechekr.common.utils.Resource;

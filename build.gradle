@@ -1,4 +1,52 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.openapitools:openapi-generator-gradle-plugin:6.3.0'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.25'
+    }
+}
 plugins {
-alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.application) apply false
+    id 'com.android.library' version '7.1.2' apply false
+    id 'org.openapi.generator' version '6.3.0'
+    id 'java'
+}
+
+apply plugin: 'org.openapi.generator'
+def ms_review_yaml = "$rootDir\\spec\\ms_review.yaml".toString()
+def build_output = "$rootDir/app/build/generated".toString()
+
+tasks.register('openApiGenerateTask_rvw', GenerateTask) {
+    println "========Generating the client code for ======== review service"
+    generatorName = "java"
+    inputSpec = ms_review_yaml
+    outputDir = build_output
+    invokerPackage = "com.vibechekr.review_api.client"
+    apiPackage = "com.vibechekr.review_api.client.controllers"
+    modelPackage = "com.vibechekr.review_api.client.models"
+    configOptions = [
+            dateLibrary: "java8",
+            library    : "retrofit2"
+    ]
+}
+
+tasks.register('vibechekr_openApiGenerate')
+        {
+            group("openapi tools")
+            println "========Generating the client code for ======== All"
+        }
+
+compileJava.dependsOn openApiGenerateTask_rvw
+
+vibechekr_openApiGenerate.dependsOn openApiGenerateTask_rvw
+
+sourceSets {
+    main {
+        java.srcDirs = ['src/main/java', '$rootDir/app/build/generated/src/main/java']
+    }
 }
