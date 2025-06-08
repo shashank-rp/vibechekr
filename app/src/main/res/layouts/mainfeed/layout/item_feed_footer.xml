@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/crdFeedFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="10dp"
+            >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgLikeOpt"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/unfilled_heart"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgCmtOpt"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/comment"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:rotationY="180"
+                app:layout_constraintHorizontal_bias="0.15"
+                />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgShareOpt"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/send2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgSaveOpt"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bookmark_unfilled"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.95"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
